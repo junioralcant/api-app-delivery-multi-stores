@@ -1,8 +1,5 @@
-
-
-from src.domain.models.users_models import Users
+from src.infra.db.entities.user_entity import UsersEntity
 from src.infra.db.settings.connection import DBConnectionHandler
-
 
 class UsersRepository: 
     @classmethod
@@ -10,10 +7,7 @@ class UsersRepository:
      
         with DBConnectionHandler() as database: 
             try:
-                print("#######################")
-                print(name, phone, cpf, email, password)
-                user = Users(name=name, phone=phone, cpf=cpf, email=email, password=password)
-                print(user)
+                user = UsersEntity(name=name, phone=phone, cpf=cpf, email=email, password=password)
                 database.session.add(user)
                 database.session.commit()
             except Exception as error:
@@ -26,8 +20,8 @@ class UsersRepository:
             try:
                 users = (
                     database.session
-                        .query(Users)
-                        .filter(Users.id == user_id)
+                        .query(UsersEntity)
+                        .filter(UsersEntity.id == user_id)
                         .all()
                 )
 
