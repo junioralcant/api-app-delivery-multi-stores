@@ -20,3 +20,18 @@ class UsersRepository:
                 database.session.rollback()
                 raise error
             
+    @classmethod
+    def select_user(cls, user_id: int) -> any:
+        with DBConnectionHandler() as database:
+            try:
+                users = (
+                    database.session
+                        .query(Users)
+                        .filter(Users.id == user_id)
+                        .all()
+                )
+
+                return users
+            except Exception as error:
+                database.session.rollback()
+                raise error       
