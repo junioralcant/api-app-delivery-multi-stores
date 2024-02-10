@@ -1,6 +1,6 @@
 #pylint: disable=redefined-builtin
 
-class User:
+class UserModel:
     def __init__(self,id: str, name: str, phone: str, cpf: str, email: str, password: str):
         self.id = id
         self.name = name
