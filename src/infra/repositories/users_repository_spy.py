@@ -6,6 +6,11 @@ class UsersRepositorySpy (UsersRepositoryContract):
     def __init__(self) -> None:
         self.insert_user_attributes = {}
         self.select_user_attributes = {}
+        self.select_user_response = [
+            UserModel(1, "Jhon", "(99)999999999", "044.044.044-44", "nUqQ7@example.com", "123456"),
+            UserModel(2, "Jhon2", "(99)444444444", "333.044.044-44", "nUqQ33@example.com", "1234"),
+        ]
+
 
     def insert_user(self, name: str, phone: str, cpf: str, email: str, password: str) -> None: 
         self.insert_user_attributes["name"] = name
@@ -16,7 +21,5 @@ class UsersRepositorySpy (UsersRepositoryContract):
             
     def select_user(self, user_id: int) -> List[UserModel]:
         self.select_user_attributes["user_id"] = user_id 
-        return [
-            UserModel(1, "Jhon", "(99)999999999", "044.044.044-44", "nUqQ7@example.com", "123456"),
-            UserModel(2, "Jhon2", "(99)444444444", "333.044.044-44", "nUqQ33@example.com", "1234"),
-        ]
+
+        return self.select_user_response
