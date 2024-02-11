@@ -22,7 +22,7 @@ class UserRegisterUseCase(UserRegisterContract):
     @classmethod
     def __format_response(cls, name: str, phone: str, cpf: str, email: str) -> Dict:
         response = {
-            "type": "User",
+            "type": "Users",
             "count": 1,
             "attributes": {
                 "name": name,
