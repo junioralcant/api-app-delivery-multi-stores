@@ -3,5 +3,9 @@
     "python.linting.pylintEnabled": true,
     "files.exclude": {
         "**/__pycache__": true,
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
     }
 }
