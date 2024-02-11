@@ -3,14 +3,14 @@ from src.data.usecases.user_finder_usecases_spy import UserFinderUseCaseSPY
 from src.presentation.controller.user_finder_controller import UserFinderController
 from src.presentation.http_type.http_response_types import HttpResponse
 
-class HTTPRequestMock():
+class HttpRequestMock():
     def __init__(self) -> None:
         self.query_params = {"user_id": "2"}
 
 def test_handle():
     user_finder_use_case = UserFinderUseCaseSPY()
     user_finder_controller = UserFinderController(user_finder_use_case)
-    http_request = HTTPRequestMock()
+    http_request = HttpRequestMock()
 
     response = user_finder_controller.handle(http_request)
 

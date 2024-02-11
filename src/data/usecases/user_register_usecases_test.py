@@ -32,7 +32,7 @@ def test_register():
     response = user_register_usecases.register(MOCKED_NAME, MOCKED_PHONE, MOCKED_CPF, MOCKED_EMAIL, MOCKED_PASSWORD)
 
     assert response == {
-        "type": "User",
+        "type": "Users",
         "count": 1,
         "attributes": {
             "name": MOCKED_NAME,
