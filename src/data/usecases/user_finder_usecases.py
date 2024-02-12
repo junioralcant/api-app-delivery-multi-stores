@@ -1,6 +1,7 @@
 from typing import List
 from src.domain.contracts.user_finder_contract import UserFinderContract
 from src.domain.models.user_model import UserModel
+from src.errors import HttpNotFoundError
 from src.infra.contracts.user_repository_contract import UsersRepositoryContract
 
 
@@ -12,7 +13,7 @@ class UserFinderUseCase(UserFinderContract):
         users = self.__user_repository.select_user(user_id)
 
         if users == []:
-            raise Exception("User not found!")
+            raise HttpNotFoundError("User not found!")
 
         return self.__format_response(users)
 
