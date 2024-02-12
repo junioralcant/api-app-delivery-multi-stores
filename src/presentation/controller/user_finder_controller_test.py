@@ -1,11 +1,12 @@
-
 from src.data.usecases.user_finder_usecases_spy import UserFinderUseCaseSPY
 from src.presentation.controller.user_finder_controller import UserFinderController
 from src.presentation.http_type.http_response_types import HttpResponse
 
-class HttpRequestMock():
+
+class HttpRequestMock:
     def __init__(self) -> None:
         self.query_params = {"user_id": "2"}
+
 
 def test_handle():
     user_finder_use_case = UserFinderUseCaseSPY()
@@ -14,7 +15,7 @@ def test_handle():
 
     response = user_finder_controller.handle(http_request)
 
-    assert user_finder_use_case.find_attributes["user_id"] == "2"
+    assert user_finder_use_case.find_attributes["user_id"] == 2
 
     assert response.status_code == 200
     assert response.body["data"] != []
@@ -26,4 +27,3 @@ def test_handle():
     assert response.body["data"]["attributes"][0].phone == "(99)999999999"
     assert response.body["data"]["attributes"][0].cpf == "044.044.044-44"
     assert response.body["data"]["attributes"][0].email == "nUqQ7@example.com"
-    
