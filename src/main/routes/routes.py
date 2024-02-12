@@ -10,7 +10,9 @@ from src.main.factories.user_register_controller_factory import (
 
 from src.errors.handle_erros import handle_erros
 
-from src.validators.user_register_valirator import user_register_validator
+from src.validators.user_register_validator import user_register_validator
+from src.validators.user_finder_validator import user_finder_validator
+
 
 user_route_bp = Blueprint("user_route", __name__)
 
@@ -19,6 +21,7 @@ user_route_bp = Blueprint("user_route", __name__)
 def find_user():
     response = None
     try:
+        user_finder_validator(request)
         response = request_http_adapter(request, user_finder_controller_factory())
     except Exception as error:
         response = handle_erros(error)
