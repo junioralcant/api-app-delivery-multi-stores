@@ -1,5 +1,5 @@
-from src.data.usecases.user_finder_usecases_spy import UserFinderUseCaseSPY
-from src.presentation.controller.user_finder_controller import UserFinderController
+from src.data.usecases.users import UserFinderUseCaseSPY
+from src.presentation.controller import UserFinderController
 from src.presentation.http_type.http_response_types import HttpResponse
 
 

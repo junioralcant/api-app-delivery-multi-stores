@@ -1,4 +1,4 @@
-from src.data.usecases.user_register_usecases import UserRegisterUseCase
+from src.data.usecases.users import UserRegisterUseCase
 from src.infra.repositories.users_repository import UsersRepository
 from src.presentation.controller.user_register_controller import UserRegisterController
 

@@ -1,9 +1,17 @@
-from src.data.usecases.user_register_usecases_spy import UserRegisterUseCaseSpy
+from src.data.usecases.users import UserRegisterUseCaseSpy
 from .user_register_controller import UserRegisterController
 
-class HttpRequestMock():
+
+class HttpRequestMock:
     def __init__(self) -> None:
-        self.body = {"name": "any_name", "phone": "any_phone", "cpf": "any_cpf", "email": "any_email", "password": "any_password"}
+        self.body = {
+            "name": "any_name",
+            "phone": "any_phone",
+            "cpf": "any_cpf",
+            "email": "any_email",
+            "password": "any_password",
+        }
+
 
 def make_sut():
     user_register_use_case = UserRegisterUseCaseSpy()
@@ -16,11 +24,12 @@ def make_sut():
         "user_register_use_case": user_register_use_case,
         "user_register_controller": user_register_controller,
         "http_request": http_request,
-        "sut": sut
-}
+        "sut": sut,
+    }
+
 
 def test_should_call_params_with_correct_values():
-    user_register_use_case = make_sut()['user_register_use_case']
+    user_register_use_case = make_sut()["user_register_use_case"]
 
     assert user_register_use_case.register_attributes["name"] == "any_name"
     assert user_register_use_case.register_attributes["phone"] == "any_phone"
@@ -28,8 +37,9 @@ def test_should_call_params_with_correct_values():
     assert user_register_use_case.register_attributes["email"] == "any_email"
     assert user_register_use_case.register_attributes["password"] == "any_password"
 
+
 def test_should_return_handle_method_with_correct_response():
-    sut = make_sut()['sut']
+    sut = make_sut()["sut"]
     http_request = make_sut()["http_request"]
 
     assert sut.status_code == 200

@@ -1,5 +1,5 @@
-from src.domain.contracts.user_finder_contract import UserFinderContract
-from src.presentation.contracts.controller_contract import ControllerContract
+from src.domain.contracts import UserFinderContract
+from src.presentation.contracts import ControllerContract
 from src.presentation.http_type.http_request_types import HttpRequest
 from src.presentation.http_type.http_response_types import HttpResponse
 

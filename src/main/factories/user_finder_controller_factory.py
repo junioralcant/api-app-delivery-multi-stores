@@ -1,6 +1,6 @@
-from src.data.usecases.user_finder_usecases import UserFinderUseCase
+from src.data.usecases.users import UserFinderUseCase
 from src.infra.repositories.users_repository import UsersRepository
-from src.presentation.controller.user_finder_controller import UserFinderController
+from src.presentation.controller import UserFinderController
 
 
 def user_finder_controller_factory() -> UserFinderController:

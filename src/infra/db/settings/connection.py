@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 class DBConnectionHandler:
     def __init__(self) -> None:
         self.__connection_string = (
-            "mysql+mysqlconnector://{}:{}@172.17.0.2:3306/{}".format(
+            "mysql+mysqlconnector://{}:{}@localhost:3306/{}".format(
                 "root",
                 "toor",
                 "multi_stores",
