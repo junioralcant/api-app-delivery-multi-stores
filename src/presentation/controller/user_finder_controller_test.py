@@ -8,10 +8,25 @@ class HttpRequestMock:
         self.query_params = {"user_id": "2"}
 
 
-def test_handle():
+def make_sut():
     user_finder_use_case = UserFinderUseCaseSPY()
     user_finder_controller = UserFinderController(user_finder_use_case)
     http_request = HttpRequestMock()
+
+    sut = user_finder_controller.handle(http_request)
+
+    return {
+        "user_finder_use_case": user_finder_use_case,
+        "user_finder_controller": user_finder_controller,
+        "http_request": http_request,
+        "sut": sut,
+    }
+
+
+def test_handle():
+    user_finder_use_case = make_sut()["user_finder_use_case"]
+    user_finder_controller = make_sut()["user_finder_controller"]
+    http_request = make_sut()["http_request"]
 
     response = user_finder_controller.handle(http_request)
 
