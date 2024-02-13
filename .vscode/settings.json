@@ -21,6 +21,7 @@
         "factories": "Jinja",
         "http": "Template",
         "adapter": "Shader",
+        "adapters": "Shader",
         "main": "Resolver"
     },
 }
